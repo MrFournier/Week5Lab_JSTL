@@ -4,6 +4,7 @@
     Author     : 766375
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,15 +24,16 @@
             <input type="submit" value="Add" >
         </form>
         
+    <c:if test="${shoppingList != null}">
         <form action="" method="POST">
             <ul>
                 <c:forEach var="item" items="${shoppingList}" >
-                    <li><input type="radio" name="${item}" value="${item}" ></li>
+                    <li><input type="radio" name="radioBtn" value="${item}" ></li>
                 </c:forEach>
             </ul>
             <input type="hidden" name="action" value="delete" >
             <input type="submit" value="Delete" >
         </form>
-        
+    </c:if>
     </body>
 </html>
